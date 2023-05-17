@@ -6,7 +6,6 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                echo 'is starting...'
                 script{
                     build()
                 }
@@ -14,7 +13,6 @@ pipeline {
         }
         stage('Deploy to DEV') {
             steps {
-                echo 'DEV is starting...'
                 script{
                     deploy("DEV", 1010)
                 }
@@ -22,7 +20,6 @@ pipeline {
         }
         stage('Tests on DEV') {
             steps {
-                echo 'TEST is starting...'
                 script{
                     test("BOOKS", "DEV")
                 }
