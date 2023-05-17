@@ -10,7 +10,7 @@ node controller.js
 
 Install pm2(node service orchestrator) as standalone 
 ```
-sudo npm install -g pm2
+sudo npm install -g pm2node controller.js
 ```
 
 Start JS application as service using pm2 (default port):

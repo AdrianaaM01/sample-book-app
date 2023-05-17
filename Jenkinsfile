@@ -14,7 +14,7 @@ pipeline {
         stage('Deploy to DEV') {
             steps {
                 script{
-                    deploy("DEV", 1010)
+                    deploy("DEV", 1050)
                 }
             }
         }
@@ -61,17 +61,17 @@ pipeline {
 
 def build(){
     echo "Building of node application is starting.."
-    sh "ls"
-    sh "npm install"
+    bat "ls"
+    bat "npm install"
     // sh "npm test"
 }
 
 def deploy(String environment, int port){
     echo "Deployment to ${environment} has started.."
-    git branch: 'main', url: 'https://github.com/mtararujs/sample-book-app.git'
-    sh "npm install"
-    sh "pm2 delete \"books-${environment}\""
-    sh "pm2 start -n \"books-${environment}\" index.js -- ${port}"
+    git branch: 'main', url: 'https://github.com/AdrianaaM01/sample-book-app.git'
+    bat "npm install"
+    bat "pm2 delete \"books-${environment}\""
+    bat "pm2 start -n \"books-${environment}\" index.js -- ${port}"
 }
 
 def test(String test_set, String environment){
