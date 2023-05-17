@@ -14,7 +14,7 @@ pipeline {
         stage('Deploy to DEV') {
             steps {
                 script{
-                    deploy("DEV", 1050)
+                    deploy("DEV", 1010)
                 }
             }
         }
@@ -77,9 +77,9 @@ def deploy(String environment, int port){
 def test(String test_set, String environment){
     echo "Testing ${test_set} test set on ${environment} has started.."
     git branch: 'main', poll: false, url: 'https://github.com/mtararujs/course-js-api-framework.git'
-    sh "ls"
-    sh "npm install"
-    sh "npm run ${test_set} ${test_set}_${environment}"
+    bat "cd"
+    bat "npm install"
+    bat "npm run ${test_set} ${test_set}_${environment}"
 }
 
 
